@@ -1,0 +1,31 @@
+<!-- app/views/movies/index.html.erb -->
+<h1>Liste des Films</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Titre</th>
+      <th>Vue d'ensemble</th>
+      <th>Poster URL</th>
+      <th>Classement</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.overview %></td>
+        <td><%= movie.poster_url %></td>
+        <td><%= movie.rating %></td>
+        <td>
+          <%= link_to 'Afficher', movie, class: 'btn btn-primary' %>
+          <%= link_to 'Modifier', edit_movie_path(movie), class: 'btn btn-warning' %>
+          <%= link_to 'Supprimer', movie, method: :delete, data: { confirm: 'Êtes-vous sûr ?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Nouveau Film', new_movie_path, class: 'btn btn-success' %>

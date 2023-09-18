@@ -1,0 +1,13 @@
+<!-- app/views/movies/new.html.erb -->
+<h1>Nouveau Film</h1>
+
+<%= simple_form_for(@movie) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :overview, as: :text %>
+  <%= f.input :poster_url %>
+  <%= f.input :rating %>
+
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>
+
+<%= link_to 'Retour', movies_path, class: 'btn btn-secondary' %>
